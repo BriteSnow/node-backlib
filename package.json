@@ -1,0 +1,41 @@
+{
+  "name": "backlib",
+  "version": "0.0.1",
+  "description": "Minimalist library for backend services",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "engines": {
+    "node": ">=14.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/briteboard/node-backlib.git"
+  },
+  "scripts": {
+    "test": "TS_NODE_FILES=true ./node_modules/.bin/mocha -p ./test/tsconfig.json ./test/spec/*.spec.ts",
+    "testw": "TS_NODE_FILES=true ./node_modules/.bin/mocha -p ./test/tsconfig.json ./test/spec/*.spec.ts --watch --watch-files './test/**/*.ts','./src/**/*.ts'",
+    "prepare": "node_modules/.bin/rimraf ./dist && ./node_modules/.bin/tsc"
+  },
+  "author": "jeremy.chone@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^9.0.1",
+    "fs-extra-plus": "^0.5.18",
+    "koa": "^2.12.1",
+    "koa-compose": "^4.1.0",
+    "utils-min": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.3",
+    "@types/koa__router": "^8.0.2",
+    "@types/mocha": "^7.0.2",
+    "mocha": "^7.2.0",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.3"
+  },
+  "files": [
+    "src/",
+    "dist/"
+  ]
+}
