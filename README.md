@@ -46,3 +46,38 @@ export webLog(rec: WebLogRecord){
 }
 ```
 
+## isTop
+
+Know if a decorator method is at the `leaf` of the class tree. Usefull when want to apply logic one one per method name. 
+
+```ts
+
+// One per decorator
+const leafTracer = newLeafTracer(); 
+
+export function MethodDec() {
+
+	return function (target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor<any>) {
+		// original method
+		const method = descriptor.value!;
+		descriptor.value = async function methodDecWrapper() {
+			// must be called on each invocation (because of order of Decoration eval at init time). 
+			// However, flag is cache, so fast check. 
+			const isLeaf = leafTracer.trace(this.constructor, target.constructor, propertyKey);
+
+			if (isLeaf){
+				// here logic to be apply only for the top most method for a given name for this class inheritance tree
+			}
+
+			const result = method.apply(this,arguments);// exec and get result
+
+			if (isLeaf){
+				// eventual logic post execution
+			}
+
+			return result;
+		}
+	}
+}
+
+```
