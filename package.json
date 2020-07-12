@@ -1,6 +1,6 @@
 {
   "name": "backlib",
-  "version": "0.2.0",
+  "version": "0.2.1-SNAPSHOT",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/briteboard/node-backlib.git"
+    "url": "https://github.com/britesnow/node-backlib.git"
   },
   "scripts": {
     "test": "TS_NODE_FILES=true ./node_modules/.bin/mocha -p ./test/tsconfig.json ./test/spec/*.spec.ts",
