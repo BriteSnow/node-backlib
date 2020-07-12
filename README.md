@@ -2,13 +2,13 @@
 Minimalist utilities for backend services. 
 
 - **Typed** Build with typescript for typescript.
-- **Modern** Node.js 14 and above, compiled with native class fields and null coalescing. 
+- **Modern** Node.js 14 and above, compiled with native class fields and null coalescing native support. 
 - **Minimalist** Not a framework, just some libs that can be assembled into an application infrastructure code.
 - **PromiseAsync/Await centric** Use Promise/async/await patterns for all async calls. 
 - **Web Async** Web request utilities based on [koajs](https://koajs.com/) over express as it is a modern rewrite of more or less the same API with backed in support for Promise/async/await (simplify many of the usecases)
 
 
-> NOTE: Still under development. If not part of BriteSnow, wait for 0.2.0 and above.
+> NOTE: Still under development. If not part of BriteSnow, wait for 0.3.0 and above to use this library. In the meantime feel free to copy/paste code.
 
 
 ## Log

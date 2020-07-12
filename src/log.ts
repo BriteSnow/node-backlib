@@ -1,6 +1,7 @@
-import * as fs from 'fs-extra-plus';
+import * as fs from 'fs-extra';
 import * as Path from 'path';
 import { isString } from 'utils-min';
+import { glob, saferRemove } from './fs';
 
 
 //#region    ---------- BaseLog ---------- 
@@ -101,8 +102,8 @@ export class FileLogWriter<R> implements LogWriter<R> {
 			await fs.mkdirs(this.dir);
 
 			// delete the logs dir if exit
-			const oldLogFiles = await fs.glob(this.dir + `${this.name}*.log`);
-			await fs.saferRemove(oldLogFiles);
+			const oldLogFiles = await glob(this.dir + `${this.name}*.log`);
+			await saferRemove(oldLogFiles);
 			console.log('Deleted old log files', oldLogFiles);
 
 			this.rev();
@@ -170,7 +171,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 				if (this.fileProcessor) {
 					await this.fileProcessor(file);
 				}
-				await fs.saferRemove(file);
+				await saferRemove(file);
 			} else {
 				console.log(`CODE ERROR - can't upload to big query ${file} does not exists`);
 			}
