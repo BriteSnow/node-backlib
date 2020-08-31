@@ -1,6 +1,6 @@
 {
   "name": "backlib",
-  "version": "0.2.1-SNAPSHOT",
+  "version": "0.2.1",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
