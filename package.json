@@ -1,6 +1,6 @@
 {
   "name": "backlib",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -19,22 +19,17 @@
   "author": "jeremy.chone@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@koa/router": "^9.4.0",
-    "@types/koa": "^2.11.4",
-    "@types/koa__router": "^8.0.2",
     "fast-glob": "^3.2.4",
     "fs-extra": "^9.0.1",
-    "koa": "^2.13.0",
-    "koa-compose": "^4.1.0",
-    "utils-min": "^0.1.16"
+    "utils-min": "^0.1.17"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.1",
-    "@types/mocha": "^8.0.3",
-    "mocha": "^8.1.3",
+    "@types/fs-extra": "^9.0.4",
+    "@types/mocha": "^8.0.4",
+    "mocha": "^8.2.1",
     "rimraf": "^3.0.2",
-    "ts-node-dev": "^1.0.0-pre.61",
-    "typescript": "^4.0.2"
+    "ts-node-dev": "^1.0.0",
+    "typescript": "^4.1.2"
   },
   "files": [
     "src/",
