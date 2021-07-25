@@ -166,7 +166,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 		this.rev();
 
 		try {
-			const exists = fs.pathExists(file);
+			const exists = await fs.pathExists(file);
 			if (exists) {
 				if (this.fileProcessor) {
 					await this.fileProcessor(file);
