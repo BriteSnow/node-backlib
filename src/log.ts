@@ -176,7 +176,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 				console.log(`CODE ERROR - can't upload to big query ${file} does not exists`);
 			}
 
-		} catch (ex) {
+		} catch (ex: any) {
 			console.log(`ERROR - logger.processLogFile - cannot upload to big query ${file}, ${ex.message}`);
 			await fs.rename(file, file + '.error');
 		}
