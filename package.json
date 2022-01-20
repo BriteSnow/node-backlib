@@ -1,5 +1,6 @@
 {
   "name": "backlib",
+  "type": "module",
   "version": "0.4.0-SNAPSHOT.1",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
@@ -19,17 +20,17 @@
   "author": "jeremy.chone@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "fast-glob": "^3.2.7",
+    "fast-glob": "^3.2.11",
     "fs-extra": "^10.0.0",
-    "utils-min": "^0.1.18"
+    "utils-min": "^0.2.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.12",
-    "@types/mocha": "^9.0.0",
-    "mocha": "^9.0.2",
+    "@types/fs-extra": "^9.0.13",
+    "@types/mocha": "^9.1.0",
+    "mocha": "^9.1.4",
     "rimraf": "^3.0.2",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.3.5"
+    "typescript": "^4.5.4"
   },
   "files": [
     "src/",

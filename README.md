@@ -8,7 +8,7 @@ Minimalist utilities for backend services.
 - **Web Async** Web request utilities based on [koajs](https://koajs.com/) over express as it is a modern rewrite of more or less the same API with backed in support for Promise/async/await (simplify many of the usecases)
 
 
-> NOTE: Still under development. If not part of BriteSnow, wait for 0.3.0 and above to use this library. In the meantime feel free to copy/paste code.
+> NOTE: Version `0.4.0` and above uses ESM module (i.e., `type: module`) only. 
 
 
 ## Log

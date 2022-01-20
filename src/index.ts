@@ -1,5 +1,5 @@
-export * from './decorator-leaf-tracer';
-export * from './fs';
-export * from './log';
-export * from './utils';
+export * from './decorator-leaf-tracer.js';
+export * from './fs.js';
+export * from './log.js';
+export * from './utils.js';
 

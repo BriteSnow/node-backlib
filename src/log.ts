@@ -1,7 +1,7 @@
-import * as fs from 'fs-extra';
 import * as Path from 'path';
 import { isString } from 'utils-min';
-import { glob, saferRemove } from './fs';
+import { glob, saferRemove } from './fs.js';
+const { pathExists, mkdirs, appendFile, rename } = (await import('fs-extra')).default;
 
 
 //#region    ---------- BaseLog ---------- 
@@ -99,7 +99,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 
 	private async init() {
 		if (!this._init) {
-			await fs.mkdirs(this.dir);
+			await mkdirs(this.dir);
 
 			// delete the logs dir if exit
 			const oldLogFiles = await glob(this.dir + `${this.name}*.log`);
@@ -133,7 +133,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 		// NOTE: In fact, this whole file write and upload, should be part of a FileLogWriter, and we just treat it as above (perhaps in the BigQueryLogWriter extends FileLogWriter)
 		const str = this.recordSerializer(rec);
 		if (str != null) {
-			await fs.appendFile(this.file!, str);
+			await appendFile(this.file!, str);
 		}
 
 		// add count
@@ -166,7 +166,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 		this.rev();
 
 		try {
-			const exists = await fs.pathExists(file);
+			const exists = await pathExists(file);
 			if (exists) {
 				if (this.fileProcessor) {
 					await this.fileProcessor(file);
@@ -178,7 +178,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 
 		} catch (ex: any) {
 			console.log(`ERROR - logger.processLogFile - cannot upload to big query ${file}, ${ex.message}`);
-			await fs.rename(file, file + '.error');
+			await rename(file, file + '.error');
 		}
 
 		this.count = 0;
@@ -195,5 +195,4 @@ function defaultSerializer<R>(rec: R): string {
 }
 
 //#endregion ---------- /FileLogWriter ---------- 
-
 

@@ -1,7 +1,7 @@
 import FastGlob, { Options } from 'fast-glob';
-import { pathExists, remove } from 'fs-extra';
 import { join as pathJoin, resolve as pathResolve } from 'path';
 import { asArray } from 'utils-min';
+const { pathExists, remove } = (await import('fs-extra')).default;
 
 /** 
  * Simplified and sorted glob function (using fast-glob) for one or more pattern from current directory or a optional cwd one. 
