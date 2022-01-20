@@ -1,7 +1,7 @@
 {
   "name": "backlib",
   "type": "module",
-  "version": "0.4.0-SNAPSHOT.2",
+  "version": "0.4.0",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -13,8 +13,7 @@
     "url": "https://github.com/britesnow/node-backlib.git"
   },
   "scripts": {
-    "test": "TS_NODE_FILES=true ./node_modules/.bin/mocha -p ./test/tsconfig.json ./test/spec/*.spec.ts",
-    "testw": "TS_NODE_FILES=true ./node_modules/.bin/mocha -p ./test/tsconfig.json ./test/spec/*.spec.ts --watch --watch-files './test/**/*.ts','./src/**/*.ts'",
+    "test": "echo 'no test for now'",
     "prepare": "node_modules/.bin/rimraf ./dist && ./node_modules/.bin/tsc"
   },
   "author": "jeremy.chone@gmail.com",
@@ -26,11 +25,8 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
-    "@types/mocha": "^9.1.0",
-    "mocha": "^9.1.4",
     "rimraf": "^3.0.2",
-    "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.5"
   },
   "files": [
     "src/",
