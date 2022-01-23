@@ -34,7 +34,7 @@
 		"esModuleInterop": true,
 
 		// Disallow inconsistently-cased references to the same file.
-		"forceConsistentCasingInFileNames": true  
+		"forceConsistentCasingInFileNames": true
 	},
 
 	// We want more control about which code we will compile and exclude

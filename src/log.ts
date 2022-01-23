@@ -1,7 +1,9 @@
+import { glob, pathExists, saferRemove } from 'fs-aux';
+import { appendFile, mkdir, rename } from 'fs/promises';
 import * as Path from 'path';
 import { isString } from 'utils-min';
-import { glob, saferRemove } from './fs.js';
-const { pathExists, mkdirs, appendFile, rename } = (await import('fs-extra')).default;
+
+// const { pathExists, mkdirs, appendFile, rename } = (await import('fs-extra')).default;
 
 
 //#region    ---------- BaseLog ---------- 
@@ -99,7 +101,7 @@ export class FileLogWriter<R> implements LogWriter<R> {
 
 	private async init() {
 		if (!this._init) {
-			await mkdirs(this.dir);
+			await mkdir(this.dir, { recursive: true });
 
 			// delete the logs dir if exit
 			const oldLogFiles = await glob(this.dir + `${this.name}*.log`);
