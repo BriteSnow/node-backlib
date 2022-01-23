@@ -8,25 +8,24 @@ export interface LogOptions<R> {
 }
 
 /**
- * Base Log class that handle the base log management logic. 
+ * Base Log class that handle the log management logic and call `writer.writeRec` on the registered logWriters
  */
 export class BaseLog<R> {
-	private logWriters: LogWriter<R>[] = [];
+	#logWriters: LogWriter<R>[] = [];
 
 	constructor(opts: LogOptions<R>) {
-		this.logWriters = [...opts.writers];
+		this.#logWriters = [...opts.writers];
 	}
 
 	async log(rec: R) {
 
-		// 
-		for (const writer of this.logWriters) {
+		for (const writer of this.#logWriters) {
 			if (writer.writeRec) {
 				try {
 					await writer.writeRec(rec);
 				} catch (ex) {
 					// here log console.log, no choise
-					console.log(`ERROR - BACKLIB - Log exception when writeRec on logWriter ${writer}. ${ex}`);
+					console.log(`ERROR - BACKLIB - Log exception when calling writeRec on logWriter ${writer}. ${ex}`);
 				}
 			}
 		}

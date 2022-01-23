@@ -28,7 +28,6 @@ export interface FileWriterOptions<R> {
 }
 
 export class FileWriter<R> implements LogWriter<R> {
-  readonly name = 'to-deprecate'; // TODO: to deprecate
   private dir: string;
   private maxCount: number;
   private maxTime: number;
@@ -91,7 +90,6 @@ export class FileWriter<R> implements LogWriter<R> {
 
     // if we are above the count, we upload
     if (this.count > this.maxCount) {
-      console.log(`->> rev ${this.name} because count ${this.count} > maxCount ${this.maxCount}`);
       await this.endFile();
     }
     // if still below the count, but do not have this.nextUpload, schedule one
@@ -104,7 +102,6 @@ export class FileWriter<R> implements LogWriter<R> {
       setTimeout(async () => {
         // perform only if this.nextUpload match the scheduled nextUpload (otherwise, was already processed and this schedule is outdated)
         if (this.nextUpload === nextUpload) {
-          console.log(`->> rev ${this.name} because maxTimeMs ${maxTimeMs}`);
           await this.endFile();
         }
       }, maxTimeMs);
@@ -122,7 +119,6 @@ export class FileWriter<R> implements LogWriter<R> {
       if (exists) {
         if (this.onFileCompleted) {
           try {
-            console.log(`->> endFile processing ${this.name} `);
             await this.onFileCompleted(file);
           } catch (ex: any) {
             console.log(`LOG PROCESSING ERROR - processing file '${file}' caused the following error: ${ex}`);
