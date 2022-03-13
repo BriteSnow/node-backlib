@@ -25,6 +25,7 @@ export class BaseLog<R> {
 					await writer.writeRec(rec);
 				} catch (ex) {
 					// here log console.log, no choise
+
 					console.log(`ERROR - BACKLIB - Log exception when calling writeRec on logWriter ${writer}. ${ex}`);
 				}
 			}
