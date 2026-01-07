@@ -1,7 +1,7 @@
 {
   "name": "backlib",
   "type": "module",
-  "version": "0.6.0",
+  "version": "0.6.1-WIP",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
   "engines": {
