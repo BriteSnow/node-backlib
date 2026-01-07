@@ -1,7 +1,7 @@
 {
   "name": "backlib",
   "type": "module",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Minimalist library for backend services",
   "main": "dist/index.js",
   "engines": {
@@ -18,7 +18,7 @@
   "author": "jeremy.chone@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "fs-aux": "^0.1.1",
+    "fs-aux": "^0.2.0",
     "utils-min": "^0.2.4"
   },
   "devDependencies": {
